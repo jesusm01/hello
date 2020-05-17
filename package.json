@@ -1,0 +1,19 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "laboratorio1",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesusm01/hello.git"
+  },
+  "author": "jesus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jesusm01/hello/issues"
+  },
+  "homepage": "https://github.com/jesusm01/hello#readme"
+}
