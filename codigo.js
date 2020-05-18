@@ -1,18 +1,30 @@
-palabras = ["aba", "aa", "ad", "vcd", "aba"];
-
-function problema (valores){
-    var mayor = 0, i=0, res=[];
-    for (i;i < valores.length;i++){
-        if (valores[i].length > mayor){        
-            mayor = valores[i].length;
-        }
+function voltear (parentesis){
+    var parentesisv = "",i=parentesis.length;
+    for(i;i>0;i--){
+      parentesisv += (parentesis[i-1]);
     }
-    console.log(mayor);
-    i = 0;
-    for (i;i < valores.length;i++){
-        if (valores[i].length == mayor){        
-            res.push(valores[i]);
-        }
-    }
-    return res;
+    return parentesisv;
 }
+
+function buscar (palabra){
+    valores= [0,0];
+    if(palabra.indexOf("(") != -1){
+        valores[0] = palabra.indexOf("(");
+        valores[1] = palabra.lastIndexOf(")");
+        var nueva = palabra.slice(valores[0]+1,valores[1]);
+        var volt = buscar (nueva);
+        valores[0] = palabra.indexOf("(");
+        valores[1] = palabra.lastIndexOf(")");
+        var nuevainicio = palabra.slice(0,valores[0]);
+        var nuevafinal = palabra.slice(valores[1]+1,palabra.length);
+        var final = nuevainicio+volt+nuevafinal;
+        return final;
+    }
+    else{
+        var volteado = voltear(palabra);
+        return volteado;
+    }
+}
+
+var palabra = "foo(bar)";
+console.log(buscar(palabra));
